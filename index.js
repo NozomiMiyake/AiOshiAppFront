@@ -90,7 +90,7 @@ const upsertData = async (
       memories: memories,
     },
   };
-  textlist.push("upsert_data: " + upsert_data);
+  // textlist.push("upsert_data: " + upsert_data);
 
   const update_url = axios
     .post(
@@ -109,8 +109,10 @@ const upsertData = async (
     .catch((err) => {
       console.log("err:", err);
       // alert("登録に失敗しました。");
+      textlist.push(err);
       textlist.push("登録に失敗しました。");
       window.alert(textlist);
+      sendText(textlist);
     });
 };
 
