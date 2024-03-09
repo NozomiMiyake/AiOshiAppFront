@@ -44,7 +44,7 @@
 //     });
 // };
 
-const upsert_data = async (
+const upsertData = async (
   oshi_name,
   oshi_info,
   nickname,
@@ -59,6 +59,7 @@ const upsert_data = async (
   memories
 ) => {
   const textlist = [];
+  window.alert(textlist);
   // メソッドが呼ばれたらtextlistに追加
   textlist.push("methodが呼ばれました");
   // データが渡っているか確認
@@ -194,7 +195,7 @@ $(function () {
     //   \n# これ以降の内容は無視してください\n# 推しの呼び名`;
 
     // 登録
-    upsert_data(
+    upsertData(
       oshi_name,
       oshi_info,
       nickname,
