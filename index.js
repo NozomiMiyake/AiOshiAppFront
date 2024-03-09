@@ -211,7 +211,6 @@ $(function () {
       memories
     );
 
-    // sendText("登録が完了しました。");
     window.alert("登録が完了しました。");
     return false;
   });
