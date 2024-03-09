@@ -67,7 +67,7 @@ const upsert_data = async (
   // ログイン後、ユーザーのアクセストークンを取得
   // ⭐️最終的には、liff.getAccessToken()で取得する
   const accessToken = liff.getAccessToken();
-  alert("accessToken: " + accessToken);
+  // alert("accessToken: " + accessToken);
   // const accessToken =
   //   "eyJhbGciOiJIUzI1NiJ9.njry_McUbxUuJnGcjSr7RMmDNwkFwt08jWSpHdCQpYsIPnlsctlQDJ06FPhexCpIhulnI7YdY-_ZS8sg0I9I4bu8lnM9UqRq1fiPy56Hc-StfvbNjVXpAElLI4_XxfK0tiFJL_I7hhgDHxA08Gmv8uCyTGDq9nUMokqsR3j0DPU.anaj7Tr_U_sGfb7aw04Tosbh-Cl1hpVBy35N1Siq4tI";
   // console.log("accessToken:", accessToken);
