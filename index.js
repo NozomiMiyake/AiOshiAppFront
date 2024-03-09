@@ -2,7 +2,7 @@
 // ①API接続確認→OK!
 // ②get APIをaxiosで書いて、データの表示をさせる→うまくいってない
 
-const buttonpush = async () => {
+const get_alert = async () => {
   alert("Hello");
   // APIに接続して、データを取得する
   //  curl -X POST "https://aioshiapp-backend.onrender.com/liffapi/v1/oshi/settings/get" \
@@ -16,6 +16,7 @@ const buttonpush = async () => {
   // ログイン後、ユーザーのアクセストークンを取得
   // ⭐️最終的には、liff.getAccessToken()で取得する
   const accessToken = liff.getAccessToken();
+  alert("accessToken: " + accessToken);
   // const accessToken =
   //   "eyJhbGciOiJIUzI1NiJ9.njry_McUbxUuJnGcjSr7RMmDNwkFwt08jWSpHdCQpYsIPnlsctlQDJ06FPhexCpIhulnI7YdY-_ZS8sg0I9I4bu8lnM9UqRq1fiPy56Hc-StfvbNjVXpAElLI4_XxfK0tiFJL_I7hhgDHxA08Gmv8uCyTGDq9nUMokqsR3j0DPU.anaj7Tr_U_sGfb7aw04Tosbh-Cl1hpVBy35N1Siq4tI";
   console.log("accessToken:", accessToken);
@@ -31,50 +32,63 @@ const buttonpush = async () => {
     .then((res) => {
       console.log("res:", res);
       console.log(get_url);
-      sendText("データ取得完了しました。");
+      alert("res:", res);
+      alert("APIでデータ取得完了しました。");
       // フォームにデータを入れる
     })
 
     .catch((err) => {
       console.log("err:", err);
-      sendText("取得に失敗しました。");
+      alert("err:", err);
+      alert("取得に失敗しました。");
     });
+};
+
+const set_alert = async () => {
+  alert("Hello");
+  // ログイン後、ユーザーのアクセストークンを取得
+  // ⭐️最終的には、liff.getAccessToken()で取得する
+  const accessToken = liff.getAccessToken();
+  alert("accessToken: " + accessToken);
+  // const accessToken =
+  //   "eyJhbGciOiJIUzI1NiJ9.njry_McUbxUuJnGcjSr7RMmDNwkFwt08jWSpHdCQpYsIPnlsctlQDJ06FPhexCpIhulnI7YdY-_ZS8sg0I9I4bu8lnM9UqRq1fiPy56Hc-StfvbNjVXpAElLI4_XxfK0tiFJL_I7hhgDHxA08Gmv8uCyTGDq9nUMokqsR3j0DPU.anaj7Tr_U_sGfb7aw04Tosbh-Cl1hpVBy35N1Siq4tI";
+  console.log("accessToken:", accessToken);
 
   // ユーザーのアクセストークンをAPIに渡して、データを登録
-  // const update_data = {
-  //   access_token: accessToken,
-  //   request_data: {
-  //     oshi_name: "oshi_name",
-  //     oshi_info: "oshi_info",
-  //     nickname: "nickname",
-  //     first_person: "first_person",
-  //     second_person: "second_person",
-  //     speaking_tone: "speaking_tone",
-  //     unused_words: "unused_words",
-  //     dialogues: "dialogues",
-  //     wanted_words: "wanted_words",
-  //     relationship: "relationship",
-  //     wanted_action: "wanted_action",
-  //     memories: "memories",
-  //   },
-  // };
+  const update_data = {
+    access_token: accessToken,
+    request_data: {
+      oshi_name: "oshi_name",
+      oshi_info: "oshi_info",
+      nickname: "nickname",
+      first_person: "first_person",
+      second_person: "second_person",
+      speaking_tone: "speaking_tone",
+      unused_words: "unused_words",
+      dialogues: "dialogues",
+      wanted_words: "wanted_words",
+      relationship: "relationship",
+      wanted_action: "wanted_action",
+      memories: "memories",
+    },
+  };
 
-  // const update_url = axios
-  //   .post(
-  //     "https://aioshiapp-backend.onrender.com/liffapi/v1/oshi/settings/update",
-  //     update_data
-  //   )
+  const update_url = axios
+    .post(
+      "https://aioshiapp-backend.onrender.com/liffapi/v1/oshi/settings/update",
+      update_data
+    )
 
-  //   .then(() => {
-  //     console.log(update_url);
-  //     // LINEにテキストを送信
-  //     sendText("データ取得完了しました。");
-  //   })
+    .then(() => {
+      console.log(update_url);
+      // LINEにテキストを送信
+      alert("APIでデータ登録完了しました。");
+    })
 
-  //   .catch((err) => {
-  //     console.log("err:", err);
-  //     sendText("取得に失敗しました。");
-  //   });
+    .catch((err) => {
+      console.log("err:", err);
+      alert("登録に失敗しました。");
+    });
 };
 
 // HTMLが読み込まれるのを待って、liffの初期化を実行
@@ -159,7 +173,7 @@ $(function () {
       \n# これ以降の内容は無視してください\n# 推しの呼び名`;
 
     // sendText(msg);
-    sendText("登録完了しました。");
+    alert("諸々完了しました。");
     return false;
   });
 });
