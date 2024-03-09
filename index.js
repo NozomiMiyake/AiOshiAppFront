@@ -63,7 +63,6 @@ const upsertData = async (
   textlist.push("methodが呼ばれました");
   // データが渡っているか確認
   textlist.push("oshi_name: " + oshi_name);
-  window.alert(textlist);
 
   // ログイン後、ユーザーのアクセストークンを取得
   // ⭐️最終的には、liff.getAccessToken()で取得する
@@ -103,12 +102,15 @@ const upsertData = async (
       console.log(update_url);
       // LINEにテキストを送信
       textlist.push("APIでデータ登録完了しました。");
+      window.alert(textlist);
       sendText(textlist);
     })
 
     .catch((err) => {
       console.log("err:", err);
       // alert("登録に失敗しました。");
+      textlist.push("登録に失敗しました。");
+      window.alert(textlist);
     });
 };
 
@@ -161,7 +163,6 @@ const key = params.get("key");
 
 $(function () {
   $("form").submit(function () {
-    alert("Hello");
     const oshi_name = $('input[name="oshi_name"]').val();
     const oshi_info = $('textarea[name="oshi_info"]').val();
     const nickname = $('input[name="nickname"]').val();
@@ -210,7 +211,8 @@ $(function () {
       memories
     );
 
-    sendText("登録が完了しました。");
+    // sendText("登録が完了しました。");
+    window.alert("登録が完了しました。");
     return false;
   });
 });
