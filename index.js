@@ -79,7 +79,7 @@ const buttonpush = async () => {
 
 // HTMLが読み込まれるのを待って、liffの初期化を実行
 $(document).ready(function () {
-  const liffId = "2003651434-4K5ojBw6";
+  const liffId = "2003988792-b4BLAeqw";
   initializeLiff(liffId);
 });
 
