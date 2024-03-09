@@ -59,11 +59,11 @@ const upsertData = async (
   memories
 ) => {
   const textlist = [];
-  window.alert(textlist);
   // メソッドが呼ばれたらtextlistに追加
   textlist.push("methodが呼ばれました");
   // データが渡っているか確認
   textlist.push("oshi_name: " + oshi_name);
+  window.alert(textlist);
 
   // ログイン後、ユーザーのアクセストークンを取得
   // ⭐️最終的には、liff.getAccessToken()で取得する
