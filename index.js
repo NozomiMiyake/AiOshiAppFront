@@ -47,10 +47,10 @@ const key = params.get("key");
 
 $(function () {
   $("form").submit(function () {
-    const setlist = $('input[name="setlist"]').val();
-    const bestSong = $('input[name="best_song"]').val();
-    const impression = $('input[name="impression"]').val();
-    const memorableEvent = $('input[name="memorable_event"]').val();
+    const setlist = $('textarea[name="setlist"]').val();
+    const bestSong = $('textarea[name="best_song"]').val();
+    const impression = $('textarea[name="impression"]').val();
+    const memorableEvent = $('textarea[name="memorable_event"]').val();
 
     // メッセージに投げるテキストを作成
     // ⭐️ここはchatGPTとかに投げたいね…
