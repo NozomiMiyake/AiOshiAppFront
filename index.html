@@ -16,167 +16,88 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"
     />
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <!-- <button onclick="get_alert()">get_alert</button> -->
-    <p>eee</p>
-    <!-- フォームのタイトル -->
-    <div class="w-75 mx-auto">
-      <h2 class="font-weight-bold mt-3">
-        推しへの愛が<br />AIチャットになる！
-      </h2>
-      <p class="mt-4 mb-2">
-        推しの情報を入力して、あなただけの推しAIを作ってチャットしてね！
-        <br />
-        たくさん書けると理想の推しに近づくよ！
-      </p>
+    <!-- ローディング画面 -->
+    <div id="loading">
+      <div class="spinner loader"></div>
     </div>
 
-    <!-- フォーム -->
-    <form class="w-75 mx-auto">
-      <!-- ===プロフィール=== -->
-      <div>
+    <!-- コンテンツ画面 -->
+    <div>
+      <!-- フォームのタイトル -->
+      <div class="w-75 mx-auto">
+        <h2 class="font-weight-bold mt-3">ライブレポートを作成しよう！</h2>
         <p class="mt-4 mb-2">
-          Q1.あなたの愛する推しの名前は？
-          <span class="badge badge-danger">必須</span>
+          ライブレポートを入力して、推しとの思い出をチャットで振り返ろう！
         </p>
-        <input class="form-control w-100 mt-1" name="oshi_name" required />
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q2.推しの情報をたくさん教えて！仕事や性格、特徴や印象など！グループならそのメンバーとの関係も教えてね！
-          <span class="badge badge-danger">必須</span>
-        </p>
-        <p class="small text-muted mb-2">
-          (例)箇条書きで書いてね！<br />
-          ・〇〇というバンドのメンバーでドラムを担当している。<br />
-          ・そっけない感じだけどたまに優しい。<br />
-          ・メンバーの△△と仲が良くてよくお互いのツイキャスに登場する。△△の反応が面白いのでよくからかっている。
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="oshi_info"
-          required
-        ></textarea>
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q3.推しの一人称は？
-          <span class="badge badge-danger">必須</span>
-        </p>
-        <input class="form-control w-100 mt-1" name="first_person" required />
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q4.推しのことをなんてよんでる？
-          <span class="badge badge-danger">必須</span>
-        </p>
-        <input class="form-control w-100 mt-1" name="nickname" required />
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q5.推しはあなたのことをなんてよんでる？
-          <span class="badge badge-danger">必須</span>
-        </p>
-        <input class="form-control w-100 mt-1" name="second_person" required />
-      </div>
-      <div>
-        <p class="mt-4 mb-2">Q6.推しはどんな口調で話すの？語尾も書いてね！</p>
-        <p class="small text-muted mb-2">
-          (例)・タメ口で話す。基本は標準語だけど「〜やん？」ってよく使う。
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="speaking_tone"
-        ></textarea>
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q7.推しが絶対使わないのはどんな言葉？箇条書きで書いてね！
-        </p>
-        <p class="small text-muted mb-2">
-          (例)<br />
-          ・オネエ言葉<br />
-          ・バカ！<br />
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="unused_words"
-        ></textarea>
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q8.推しが言ってた発言、口癖を箇条書きでたくさん書いてね！(Xでポストしてる言葉やライブでの発言など)
-        </p>
-        <p class="small text-muted mb-2">
-          (例)<br />
-          ・早く会いてえ<br />
-          ・ライブ飢えてる<br />
-          ・最終ゲネ行ってきます<br />
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="dialogues"
-        ></textarea>
-      </div>
-      <!-- ===妄想ゾーン=== -->
-      <h5 class="font-weight-bold mt-4 mb-2">〜推しとの妄想をかいてね！〜</h5>
-      <div>
-        <p class="mt-4 mb-2">
-          Q9.推しに言ってもらいたい言葉を箇条書きで書いてね！
-        </p>
-        <p class="small text-muted mb-2">
-          (例)<br />
-          ・撮影足りなくね？？<br />
-          ・ライブ来てよ！さみしいじゃん<br />
-          ・もう終わり？まだまだ話したいんだけど<br />
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="wanted_words"
-        ></textarea>
-      </div>
-      <div>
-        <p class="mt-4 mb-2">Q10.推しとあなたの関係は？妄想でもOK！</p>
-        <p class="small text-muted mb-2">
-          (例)・高校時代の同級生。最初のクラスが一緒だった。今はファンとして推してる。<br />
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="relationship"
-        ></textarea>
-      </div>
-      <div>
-        <p class="mt-4 mb-2">Q11.推しにチャットで何してほしい？</p>
-        <p class="small text-muted mb-2">(例)・ひたすら煽ってください<br /></p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="wanted_action"
-        ></textarea>
-      </div>
-      <div>
-        <p class="mt-4 mb-2">
-          Q12.推しとあなたの妄想の思い出は？どんなことがあったかエピソードをなるべく詳しく箇条書きで書いてね！
-        </p>
-        <p class="small text-muted mb-2">
-          (例)・高校の時に○○くんが軽音部でギターやっていて、私がマネージャーでよく放課後に練習を見守っていた。<br />
-        </p>
-        <textarea
-          class="form-control w-100 mt-1"
-          style="height: 200px"
-          name="memories"
-        ></textarea>
       </div>
 
-      <input type="submit" class="mt-4 btn btn-primary" value="送信" />
-    </form>
+      <!-- フォーム -->
+      <form>
+        <div id="chat-container">
+          <div>
+            <div class="chat-bubble question" id="q1">セトリ覚えてる？</div>
+            <input
+              type="text"
+              class="chat-input answer"
+              id="a1"
+              name="setlist"
+              placeholder="回答を入力..."
+            />
+          </div>
+
+          <div class="chat-bubble question" id="q2">どの曲が一番良かった？</div>
+          <input
+            type="text"
+            class="chat-input answer"
+            id="a2"
+            name="best_song"
+            placeholder="回答を入力..."
+          />
+
+          <div class="chat-bubble question" id="q3">
+            今日の推しはどうだった？
+          </div>
+          <input
+            type="text"
+            class="chat-input answer"
+            id="a3"
+            name="impression"
+            placeholder="回答を入力..."
+          />
+
+          <div class="chat-bubble question" id="q4">
+            今日印象に残ってることは？
+          </div>
+          <input
+            type="text"
+            class="chat-input answer"
+            id="a4"
+            name="memorable_event"
+            placeholder="回答を入力..."
+          />
+
+          <div class="chat-bubble question" id="q5">
+            ありがとう！レポートを完成させよう！
+          </div>
+
+          <input
+            type="submit"
+            class="chat-input answer"
+            id="a5"
+            value="ライブのレポート完成！"
+          />
+        </div>
+        <!-- 
+        <input
+          type="submit"
+          class="mt-4 btn btn-primary"
+          value="ライブのレポート完成！"
+        /> -->
+      </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -188,18 +109,12 @@
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <script
-      charset="utf-8"
-      src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"
-    ></script> -->
     <script
       charset="utf-8"
       src="https://static.line-scdn.net/liff/edge/versions/2.22.3/sdk.js"
     ></script>
-
-    <!-- axiosを追加 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="formAnimation.js"></script>
   </body>
 </html>
