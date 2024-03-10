@@ -55,12 +55,11 @@ $(function () {
     // メッセージに投げるテキストを作成
     // ⭐️ここはchatGPTとかに投げたいね…
     const msg = `今日のイベントレポ！
-    \n${setlist}
-    \n${bestSong}
-    \n${impression}
-    \n${memorableEvent}`;
+    \n【セットリスト】\n${setlist}
+    \n【今日の一番好きな曲】\n${bestSong}
+    \n【今日の推し】\n${impression}
+    \n【今日一番こころに残ったこと】\n${memorableEvent}`;
 
-    window.alert("登録が完了しました。");
     sendText(msg);
     return false;
   });
